@@ -1,0 +1,11 @@
+.nav_container {
+  background-color: white;
+  min-width: 15%;
+  padding: 36px 28px;
+  min-height: 100vh;
+}
+.nav_btn {
+  width: 100%;
+  padding: 10px 0 10px 10px;
+  display: block;
+}
