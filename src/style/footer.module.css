@@ -1,0 +1,18 @@
+.footer {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.footer img {
+  width: 50px;
+}
+.footer article {
+  margin-left: 15px;
+}
+.footer article p {
+  margin: 5px 0;
+}
+.text_name {
+  font-weight: 700;
+}
