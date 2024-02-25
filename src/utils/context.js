@@ -9,6 +9,8 @@ export const useApp = () => {
 
 export const AppProvider = ({ children }) => {
   const [rate, setRate] = useState([]);
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
 
   const get_rate_data = async (...obj) => {
     try {
@@ -24,7 +26,9 @@ export const AppProvider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ rate, get_rate_data }}>
+    <AppContext.Provider
+      value={{ rate, get_rate_data, setStartDate, setEndDate }}
+    >
       {children}
     </AppContext.Provider>
   );

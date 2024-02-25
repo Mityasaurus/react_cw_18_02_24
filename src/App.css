@@ -1,14 +1,15 @@
 .App {
   margin: 0;
   padding: 0;
-  background-color: #F1EFFB;
+  background-color: #fcfbff;
   width: 100%;
   min-height: 100vh;
 }
-a{
+a {
   text-decoration: none;
   color: black;
 }
-ul, li{
+ul,
+li {
   list-style: none;
 }

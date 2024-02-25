@@ -1,0 +1,17 @@
+.chart {
+  background-color: white;
+  padding: 2%;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.227);
+}
+.barChart {
+  width: 40vw;
+  height: 20vw;
+}
+.polarChart {
+  width: 25vw;
+  height: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

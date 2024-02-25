@@ -9,8 +9,8 @@ export default function Footer() {
         alt="Profile"
       />
       <article>
-        <p className={s.text_name}>Evano</p>
-        <p className={s.text_desc}>Project manager</p>
+        <p className={s.text_name}>Dmytro Bovdun</p>
+        <p className={s.text_desc}>.NET Developer</p>
       </article>
     </footer>
   );

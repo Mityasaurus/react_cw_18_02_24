@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import { useApp } from "../utils/context";
+import BarChart from "../components/BarChart";
+import PolarChart from "../components/PolarChart";
+import Calendar from "../components/Calendar";
 
 export default function ExchangeRate() {
   const { rate, get_rate_data } = useApp();
@@ -18,5 +21,19 @@ export default function ExchangeRate() {
     fetchData();
   }, []);
 
-  return <div>Exchange rate</div>;
+  return (
+    <div>
+      <Calendar />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+        }}
+      >
+        <BarChart />
+        <PolarChart />
+      </div>
+    </div>
+  );
 }
