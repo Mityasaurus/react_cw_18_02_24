@@ -2,9 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Layout from "./pages/Layout";
 import ExchangeRate from "./pages/ExchangeRate";
-import Product from "./pages/Product";
 import Customers from "./pages/Customers";
 import { AppProvider } from "./utils/context";
+import BanksIncExp from "./pages/BanksIncExp";
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Layout />}>
+            <Route path="banks-inc-exp" element={<BanksIncExp />} />
             <Route path="exchange-rate" element={<ExchangeRate />} />
-            <Route path="product" element={<Product />} />
             <Route path="customers" element={<Customers />} />
           </Route>
         </Routes>

@@ -1,23 +1,47 @@
 import { Space, DatePicker } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import { useApp } from "../utils/context";
+import formatDateString from "../utils/formatDateString";
 
 const { RangePicker } = DatePicker;
 
 export default function Calendar() {
-  const { setStartDate, setEndDate } = useApp();
+  const {
+    get_banks_inc_exp_data,
+    startDate,
+    endDate,
+    setStartDate,
+    setEndDate,
+  } = useApp();
+
+  const fetch_data = async (start, end) => {
+    try {
+      if (!start) {
+        start = `${new Date().getFullYear()}0101`;
+      }
+      if (!end) {
+        end = `${new Date().getFullYear() - 5}0101`;
+      }
+      await get_banks_inc_exp_data(start, end);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetch_data();
+  }, []);
+
   function handleGetDate(e) {
-    console.dir(e);
-    setStartDate(
-      e[0].$M.length !== 2 || e[0].$D.length !== 2
-        ? `${e[0].$y}0${e[0].$M + 1}0${e[0].$D}`
-        : `${e[0].$y}${e[0].$M + 1}${e[0].$D}`
-    );
-    setEndDate(
-      e[1].$M.length !== 2 || e[1].$D.length !== 2
-        ? `${e[1].$y}0${e[1].$M + 1}0${e[1].$D}`
-        : `${e[1].$y}${e[1].$M + 1}${e[1].$D}`
-    );
+    if (e != null) {
+      const start = formatDateString(e[0]);
+      const end = formatDateString(e[1]);
+      setStartDate(start);
+      setEndDate(end);
+      fetch_data(start, end);
+    } else {
+      fetch_data();
+    }
   }
   return (
     <div>

@@ -9,6 +9,7 @@ export const useApp = () => {
 
 export const AppProvider = ({ children }) => {
   const [rate, setRate] = useState([]);
+  const [incExp, setIncExp] = useState([]);
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
 
@@ -25,9 +26,31 @@ export const AppProvider = ({ children }) => {
     }
   };
 
+  const get_banks_inc_exp_data = async (start, end) => {
+    try {
+      const response = await fetch(
+        `${fetch_config.BASE_URL}${fetch_config.PATH_BANKS_INC_EXP}&start=${start}&end=${end}`
+      );
+      const data = await response.json();
+      setIncExp(data);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <AppContext.Provider
-      value={{ rate, get_rate_data, setStartDate, setEndDate }}
+      value={{
+        rate,
+        incExp,
+        startDate,
+        endDate,
+        get_rate_data,
+        get_banks_inc_exp_data,
+        setStartDate,
+        setEndDate,
+      }}
     >
       {children}
     </AppContext.Provider>

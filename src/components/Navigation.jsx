@@ -9,11 +9,11 @@ export default function Navigation() {
     <div className={s.nav_container}>
       <Header />
       <nav>
+        <NavLink to="banks-inc-exp" className={s.nav_btn}>
+          Banks income and expenses
+        </NavLink>
         <NavLink to="exchange-rate" className={s.nav_btn}>
           Exchange rate
-        </NavLink>
-        <NavLink to="product" className={s.nav_btn}>
-          Product
         </NavLink>
         <NavLink to="customers" className={s.nav_btn}>
           Customers
