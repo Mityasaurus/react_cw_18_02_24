@@ -6,31 +6,7 @@ import formatDateString from "../utils/formatDateString";
 const { RangePicker } = DatePicker;
 
 export default function Calendar() {
-  const {
-    get_banks_inc_exp_data,
-    startDate,
-    endDate,
-    setStartDate,
-    setEndDate,
-  } = useApp();
-
-  const fetch_data = async (start, end) => {
-    try {
-      if (!start) {
-        start = `${new Date().getFullYear()}0101`;
-      }
-      if (!end) {
-        end = `${new Date().getFullYear() - 5}0101`;
-      }
-      await get_banks_inc_exp_data(start, end);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    fetch_data();
-  }, []);
+  const { setStartDate, setEndDate } = useApp();
 
   function handleGetDate(e) {
     if (e != null) {
@@ -38,9 +14,6 @@ export default function Calendar() {
       const end = formatDateString(e[1]);
       setStartDate(start);
       setEndDate(end);
-      fetch_data(start, end);
-    } else {
-      fetch_data();
     }
   }
   return (

@@ -10,7 +10,6 @@ import {
   Legend,
 } from "chart.js";
 import s from "../style/charts.module.css";
-import { useApp } from "../utils/context";
 
 ChartJS.register(
   CategoryScale,
@@ -22,38 +21,12 @@ ChartJS.register(
 );
 
 export default function BarChart(props) {
-  const incExp = props.data;
-  const years = [];
-  incExp?.map((item) => {
-    let year = parseInt(item.dt.slice(0, 4));
-    if (years.includes(year) === false) {
-      years.push(year);
-      year = year + 1;
-    }
-  });
-  let tempYear = years[0];
-  let indexYear = 0;
-  const values = [];
-  let counter = 0;
-  incExp?.map((item) => {
-    let year = parseInt(item.dt.slice(0, 4));
-    if (year === tempYear) {
-      counter += item.value;
-    } else {
-      indexYear = indexYear + 1;
-      tempYear = years[indexYear];
-      values.push(counter);
-      counter = item.value;
-    }
-  });
-  values[values.length] = counter;
-  console.log(values);
   const data = {
-    labels: years,
+    labels: props.labels,
     datasets: [
       {
         label: "«Валовий зовнішній борг України",
-        data: values,
+        data: props.data,
         backgroundColor: "#F2EFFF",
         hoverBackgroundColor: "#5932EA",
         borderRadius: "12",

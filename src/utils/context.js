@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { fetch_config } from "../utils/fetch_config.js";
 
 const AppContext = createContext();
@@ -10,8 +10,8 @@ export const useApp = () => {
 export const AppProvider = ({ children }) => {
   const [rate, setRate] = useState([]);
   const [incExp, setIncExp] = useState([]);
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+  const [startDate, setStartDate] = useState("20180101");
+  const [endDate, setEndDate] = useState("20231231");
 
   const get_rate_data = async (...obj) => {
     try {
@@ -26,10 +26,10 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  const get_banks_inc_exp_data = async (start, end) => {
+  const get_banks_inc_exp_data = async () => {
     try {
       const response = await fetch(
-        `${fetch_config.BASE_URL}${fetch_config.PATH_BANKS_INC_EXP}&start=${start}&end=${end}`
+        `${fetch_config.BASE_URL}${fetch_config.PATH_BANKS_INC_EXP}&start=${startDate}&end=${endDate}`
       );
       const data = await response.json();
       setIncExp(data);
@@ -38,6 +38,10 @@ export const AppProvider = ({ children }) => {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    get_banks_inc_exp_data();
+  }, [startDate, endDate]);
 
   return (
     <AppContext.Provider
