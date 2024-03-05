@@ -7,16 +7,17 @@ import getRandomColor from "../utils/randomColor";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function PolarChart(props) {
+  const { propsData } = props;
   const colors = [];
-  for (let i = 0; i < props.labels.length; i++) {
+  for (let i = 0; i < Object.keys(propsData).length; i++) {
     colors.push(getRandomColor());
   }
   const data = {
-    labels: props.labels,
+    labels: Object.keys(propsData),
     datasets: [
       {
         label: "Загальна сума",
-        data: props.data,
+        data: Object.values(propsData),
         backgroundColor: colors,
         borderWidth: 0,
         hoverOffset: 25,

@@ -14,8 +14,7 @@ ChartJS.register(LineElement, PointElement, Tooltip, Legend);
 export default function LineChart(props) {
   const { propsData } = props;
   const data = {
-    //! labels: Object.keys(propsData && propsData[Object.keys(props)[0]]),
-    labels: [1, 2, 3, 4, 5],
+    labels: Object.keys(Object.values(propsData)[0]),
     datasets: Object.keys(propsData).map((item) => {
       if (propsData[item]) {
         return {

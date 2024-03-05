@@ -21,12 +21,13 @@ ChartJS.register(
 );
 
 export default function BarChart(props) {
+  const { propsData } = props;
   const data = {
-    labels: props.labels,
+    labels: Object.keys(propsData),
     datasets: [
       {
         label: "«Валовий зовнішній борг України",
-        data: props.data,
+        data: Object.values(propsData),
         backgroundColor: "#F2EFFF",
         hoverBackgroundColor: "#5932EA",
         borderRadius: "12",
