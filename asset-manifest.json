@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Mityasaurus/react_cw_18_02_24/static/css/main.63be3f74.css",
+    "main.js": "/Mityasaurus/react_cw_18_02_24/static/js/main.45e98b9c.js",
+    "index.html": "/Mityasaurus/react_cw_18_02_24/index.html",
+    "main.63be3f74.css.map": "/Mityasaurus/react_cw_18_02_24/static/css/main.63be3f74.css.map",
+    "main.45e98b9c.js.map": "/Mityasaurus/react_cw_18_02_24/static/js/main.45e98b9c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.63be3f74.css",
+    "static/js/main.45e98b9c.js"
+  ]
+}
