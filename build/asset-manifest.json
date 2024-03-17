@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Mityasaurus/react_cw_18_02_24/static/css/main.63be3f74.css",
-    "main.js": "/Mityasaurus/react_cw_18_02_24/static/js/main.66859c69.js",
+    "main.js": "/Mityasaurus/react_cw_18_02_24/static/js/main.2484d7bf.js",
     "index.html": "/Mityasaurus/react_cw_18_02_24/index.html",
     "main.63be3f74.css.map": "/Mityasaurus/react_cw_18_02_24/static/css/main.63be3f74.css.map",
-    "main.66859c69.js.map": "/Mityasaurus/react_cw_18_02_24/static/js/main.66859c69.js.map"
+    "main.2484d7bf.js.map": "/Mityasaurus/react_cw_18_02_24/static/js/main.2484d7bf.js.map"
   },
   "entrypoints": [
     "static/css/main.63be3f74.css",
-    "static/js/main.66859c69.js"
+    "static/js/main.2484d7bf.js"
   ]
 }

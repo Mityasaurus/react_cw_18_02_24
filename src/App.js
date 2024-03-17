@@ -8,19 +8,17 @@ import BanksIncExp from "./pages/BanksIncExp";
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppProvider>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route path="banks-inc-exp" element={<BanksIncExp />} />
-              <Route path="exchange-rate" element={<ExchangeRate />} />
-              <Route path="customers" element={<Customers />} />
-            </Route>
-          </Routes>
-        </div>
-      </AppProvider>
-    </BrowserRouter>
+    <AppProvider>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="banks-inc-exp" element={<BanksIncExp />} />
+            <Route path="exchange-rate" element={<ExchangeRate />} />
+            <Route path="customers" element={<Customers />} />
+          </Route>
+        </Routes>
+      </div>
+    </AppProvider>
   );
 }
 
